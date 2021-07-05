@@ -1,7 +1,7 @@
 global path "\\Sankalpsharma\MSE\Research\athena"
-global data "$path/survey"
+global data "$path/survey/data"
 
-import excel "$data/responses.xlsx", sheet("Form Responses 1") firstrow clear
+import excel "$data/raw/responses.xlsx", sheet("Form Responses 1") firstrow clear
 
 ren *, lower
 ren timestamp time
