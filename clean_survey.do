@@ -1,7 +1,5 @@
-global path "\\Sankalpsharma\MSE\Research\athena"
-global data "$path/survey/data"
-
-import excel "$data/raw/responses.xlsx", sheet("Form Responses 1") firstrow clear
+/* load raw survey data */
+import excel "$adata/raw/responses.xlsx", sheet("Form Responses 1") firstrow clear
 
 ren *, lower
 ren timestamp time
@@ -40,4 +38,4 @@ drop byselectingthisboxiconsent college year gender socialgroup howwouldyoubestd
 
 order time sex institution batch social_group residence
 
-save "$data/survey.dta", replace
+save "$adata/survey.dta", replace

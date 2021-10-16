@@ -1,10 +1,5 @@
-set more off
-
-global path "\\Sankalpsharma\MSE\Research\athena\survey"
-
-cd $path
-
-use "survey.dta" , clear
+/* open survey data */
+use "$adata/survey.dta" , clear
 
 * MSE indicator
 gen mse = (institution == 13)
@@ -91,9 +86,6 @@ graph hbar, over( family_monthly_income ) cw
 *6 Screen Time
 graph hbar, over( screen_time, sort(1) descending) cw
 
-
-
-
 //residence
 
 *1 Internet Speed
@@ -107,7 +99,6 @@ graph hbar (mean) skill_acq , over(residence, sort( skill_acq ) descending) blab
 
 *4 GAD Scores
 graph hbar (mean) gad_score , over(residence, sort( gad_score ) descending) blabel(total, size(medsmall) format(%9.2f)) ytitle(Average GAD Score(1-21)) graphregion(margin(large))
-
 
 //Sex
 
@@ -220,6 +211,3 @@ graph hbar (mean) skill_acq , over( career_change , sort( skill_acq ) descending
 
 //Stress by Gender
 graph hbar (mean) stress_routine_act , over( sex , sort( stress_routine_act ) descending) blabel(total, size(medsmall) format(%9.2f)) ytitle(Average Stress Score(1-5)) graphregion(margin(large))
-
-
-

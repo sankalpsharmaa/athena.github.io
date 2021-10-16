@@ -1,6 +1,5 @@
-global data "$athena/data"
-
-use "$data/survey.dta" , clear
+/* load clean survey data */
+use "$adata/survey.dta" , clear
 
 /* prep data for analysis */
 
@@ -17,7 +16,7 @@ recode `i' (3=0) (4=1) (1=2) (2=3)
 
 }
 
-label define gad 0 "More than half days" 1 "Nearly every day" 2 "Not at all" 3 "Some days", replace
+label define gad 0 "Not at all" 1 "Some days" 2 "More than half days" 3 "Nearly every day", replace
 label values gad_* gad
 
 egen gad_score = rowtotal(gad_*)
@@ -43,11 +42,10 @@ replace `i' = `i'*100
 /* plots */
 
 * prevalence of anxiety by family income
-graph pie, over(gad_cat) pie(_all, explode) plabel(_all percent, size(small) format(%9.2f)) by(, title(Prevalence of Anxiety by Family Income) note("")) by(, legend(position(6))) legend(cols(4)) by(family_monthly_income)
+graph pie, over(gad_cat) pie(_all, explode) plabel(_all percent, size(small) format(%9.1f)) by(, title(Prevalence of Anxiety by Family Income) note("")) by(, legend(position(6))) legend(cols(4)) by(family_monthly_income)
 
 * prevalence of anxiety by gender
 graph pie, over(gad_cat) pie(_all, explode) plabel(_all percent, size(small) format(%9.2f)) by(, title(Prevalence of Anxiety by Gender) note("")) by(, legend(position(6))) legend(cols(4)) by(sex, cols(3))
 
 * moderate and severe anxiety by income and residence
 graph hbar (mean) gad_cat_3 (mean) gad_cat_4, over(family_monthly_income) over(residence) stack blabel(bar, position(inside) format(%9.2f) justification(left) alignment(middle)) legend(order(1 "Moderate Anxiety" 2 "Severe Anxiety") cols(2) position(6) ring(5))
-
