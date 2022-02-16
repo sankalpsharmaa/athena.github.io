@@ -1,6 +1,6 @@
 # Athena
 # 2021 Edition now released! 
-[Link to magazine](https://sankalpsharmaa.github.io/athena.github.io/athena_final.pdf)
+[Link to magazine](http://mseathenamagazine.tk/athena_final.pdf)
 
 This edition focuses on issues around mental health and marginalization. 
 
