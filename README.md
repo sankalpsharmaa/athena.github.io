@@ -1,4 +1,7 @@
-# MSE Athena Magazine
+# 2021 Edition now released! 
+[Link](https://sankalpsharmaa.github.io/athena.github.io/athena_final.pdf)
+
+## About Athena 
 
 ## Media Coverage
 
